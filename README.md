@@ -25,7 +25,7 @@ docker run -d \
     -p 14268:14268 \
     jaegertracing/all-in-one:latest && open http://localhost:16686
 
-<img width="1440" alt="Screenshot 2024-02-22 at 05 05 43" src="https://github.com/asadpstu/nest-microservice-kafkaeventbus/assets/10845009/dc8a6d7f-f7e1-460a-b87d-de0a1344788a">
+![Microservice Architecture]([example_image.png](https://github.com/asadpstu/nest-microservice-kafkaeventbus/assets/10845009/dc8a6d7f-f7e1-460a-b87d-de0a1344788a))
 
 
 # Microservice Eventual Logs
