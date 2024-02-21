@@ -39,10 +39,7 @@ async function bootstrap() {
         brokers: [process.env.KAFKA_BROKERS],
       },
       consumer: {
-        groupId:
-          process.env.NODE_ENV === 'DEVELOPMENT'
-            ? process.env.KAFKA_GROUP_ID + new Date().getMilliseconds()
-            : process.env.KAFKA_GROUP_ID,
+        groupId: process.env.KAFKA_GROUP_ID,
       },
     },
   });

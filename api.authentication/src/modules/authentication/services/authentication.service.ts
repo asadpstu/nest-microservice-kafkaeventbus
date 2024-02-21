@@ -30,7 +30,6 @@ export class AuthenticationService {
     const refreshToken = await this.generateRefreshToken(user);
 
     await this.saveToken(user.id, refreshToken);
-
     return {
       accessToken,
       refreshToken,

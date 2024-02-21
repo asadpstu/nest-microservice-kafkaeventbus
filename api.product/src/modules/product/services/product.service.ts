@@ -9,7 +9,6 @@ import { AppError } from '@shared/errors/app.error';
 export class ProductService {
   constructor(
     private readonly databaseService: DatabaseService,
-
     private readonly kafkaService: KafkaService,
   ) {}
 

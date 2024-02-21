@@ -8,6 +8,7 @@ import {
 import { CartController } from '@modules/cart/controllers/cart.controller';
 import { EventController } from '@modules/cart/controllers/event.controller';
 import { CartService } from '@modules/cart/services/cart.service';
+import { MessageModule } from '@modules/message/message.module';
 
 const loadRepositories = TypeOrmModule.forFeature([
   CartRepository,
@@ -15,7 +16,7 @@ const loadRepositories = TypeOrmModule.forFeature([
 ]);
 
 @Module({
-  imports: [loadRepositories],
+  imports: [loadRepositories, MessageModule],
   controllers: [CartController, EventController],
   providers: [CartService],
   exports: [CartService, loadRepositories],

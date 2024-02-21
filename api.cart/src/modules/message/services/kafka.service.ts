@@ -14,7 +14,7 @@ export class KafkaService
         brokers: [configService.get('KAFKA_BROKERS')],
       },
       consumer: {
-        groupId: process.env.KAFKA_GROUP_ID,
+        groupId: process.env.KAFKA_GROUP_ID
       },
     });
   }

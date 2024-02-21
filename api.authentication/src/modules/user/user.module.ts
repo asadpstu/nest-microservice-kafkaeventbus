@@ -5,6 +5,7 @@ import { UserController } from '@modules/user/controllers/user.controller';
 import { UserService } from '@modules/user/services/user.service';
 import { USER_REPOSITORY } from '@shared/constants/constants';
 import { User } from '@modules/user/models/user.model';
+import { MessageModule } from '@modules/message/message.module';
 
 export const usersProvider = {
   provide: USER_REPOSITORY,
@@ -12,7 +13,7 @@ export const usersProvider = {
 };
 
 @Module({
-  imports: [AuthenticationModule],
+  imports: [MessageModule,AuthenticationModule],
   controllers: [UserController],
   providers: [UserService, usersProvider],
   exports: [UserService, usersProvider],
