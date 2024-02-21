@@ -23,7 +23,9 @@ docker run -d \
     -p 5778:5778 \
     -p 16686:16686 \
     -p 14268:14268 \
-    jaegertracing/all-in-one:latest && open http://localhost:16686```
+    jaegertracing/all-in-one:latest && open http://localhost:16686
+
+
 
 
 # Microservice Eventual Logs
