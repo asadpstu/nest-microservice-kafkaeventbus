@@ -23,9 +23,9 @@ docker run -d \
     -p 5778:5778 \
     -p 16686:16686 \
     -p 14268:14268 \
-    jaegertracing/all-in-one:latest && open http://localhost:16686
+    jaegertracing/all-in-one:latest && open http://localhost:16686```
 
-![Jaeger dashboard](https://github.com/asadpstu/nest-microservice-kafkaeventbus/assets/10845009/dc8a6d7f-f7e1-460a-b87d-de0a1344788a)
+<img src="https://github.com/asadpstu/nest-microservice-kafkaeventbus/assets/10845009/dc8a6d7f-f7e1-460a-b87d-de0a1344788a" height="250px" width="120" />
 
 # Microservice Eventual Logs
 
