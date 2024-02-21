@@ -11,6 +11,8 @@ This project implements a microservices architecture using the Nest.js framework
 - **Cart Microservice**: Manages shopping cart operations.
 - **Event Bus - Kafka**: Facilitates communication between microservices via a publish-subscribe model.
 
+## Node version - use node 16+
+
 ## Monitoring with Jaeger
 
 For monitoring microservices, Jaeger is utilized for tracing. To set up Jaeger, execute the following command:
