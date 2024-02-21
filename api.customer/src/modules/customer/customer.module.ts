@@ -7,13 +7,14 @@ import { CustomerController } from '@modules/customer/controllers/customer.contr
 import { EventController } from '@modules/customer/controllers/event.controller';
 import { CustomerService } from '@modules/customer/services/customer.service';
 import { MessageModule } from '@modules/message/message.module';
+import { LoggerModule } from '@modules/logger/logger.module';
 
 const loadRepositories = TypeOrmModule.forFeature([
   CustomerRepository,
 ]);
 
 @Module({
-  imports: [loadRepositories, MessageModule],
+  imports: [loadRepositories, MessageModule, LoggerModule],
   controllers: [CustomerController, EventController],
   providers: [CustomerService],
   exports: [CustomerService, loadRepositories],

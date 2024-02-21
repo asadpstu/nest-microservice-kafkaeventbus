@@ -15,7 +15,6 @@ export const swaggerConfig = async function conf(
     .setTitle(process.env.SWAGGER_TITLE)
     .setDescription(process.env.SWAGGER_DESCRIPTION)
     .setVersion(APP_VERSION)
-    .setContact('Vinicius', 'N/A', 'vinicius.smelo54@gmail.com')
     .addServer(process.env.SWAGGER_SERVER)
     .addBearerAuth(
       { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },

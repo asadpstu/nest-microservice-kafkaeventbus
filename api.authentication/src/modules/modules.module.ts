@@ -6,6 +6,7 @@ import { HealthModule } from '@modules/health/health.module';
 import { UserModule } from '@modules/user/user.module';
 import { MessageModule } from '@modules/message/message.module';
 
+
 @Module({
   imports: [DatabaseModule, HealthModule, AuthenticationModule, UserModule, MessageModule],
   controllers: [],

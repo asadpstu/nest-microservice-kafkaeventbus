@@ -1,6 +1,6 @@
 import { EventPattern, Payload } from '@nestjs/microservices';
 import { Controller } from '@nestjs/common';
-import { KAFKA_PRODUCT_CREATED_TOPIC } from '@shared/constants';
+import { KAFKA_TOPIC } from '@shared/constants';
 
 @Controller()
 export class EventController {

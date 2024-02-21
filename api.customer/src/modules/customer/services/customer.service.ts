@@ -10,12 +10,14 @@ import {
 } from '@modules/customer/dtos';
 import { IAuthUser } from '@shared/interfaces/auth-user.interface';
 import { AppError } from '@shared/errors/app.error';
+import { LoggerService } from '@modules/logger/logger/logger.service';
 
 @Injectable()
 export class CustomerService {
   constructor(
     @InjectRepository(CustomerRepository)
     private readonly CustomerRepository: CustomerRepository,
+    private readonly logger: LoggerService
   ) {}
 
   async addCustomer(
@@ -30,6 +32,7 @@ export class CustomerService {
     });
 
     if (foundCustomer) {
+      this.logger.warn(`Customer profile already available for userId: ${user.sub}`)
       throw new AppError(HttpStatus.CONFLICT, 'Customer profile already available.');
     }
 
@@ -39,7 +42,7 @@ export class CustomerService {
       address: address,
       is_active: is_active,
     });  
-
+    this.logger.log(`Customer profile added for userId : ${user.sub}`)
     return CreateCustomerDto.factory(newCustomer);
   }
 

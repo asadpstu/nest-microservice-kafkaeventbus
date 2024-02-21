@@ -1,3 +1,5 @@
+const Tracer = require('@risingstack/jaeger')
+new Tracer({serviceName: 'Cart-service'})
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';

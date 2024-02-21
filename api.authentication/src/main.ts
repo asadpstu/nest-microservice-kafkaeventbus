@@ -1,3 +1,5 @@
+const Tracer = require('@risingstack/jaeger')
+new Tracer({serviceName: 'Authentication-authorization-service'})
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import * as dotenv from 'dotenv';

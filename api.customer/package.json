@@ -30,11 +30,12 @@
     "@nestjs/common": "8.4.3",
     "@nestjs/config": "2.0.0",
     "@nestjs/core": "8.4.3",
-    "@nestjs/microservices": "8.4.4",
     "@nestjs/jwt": "10.0.3",
+    "@nestjs/microservices": "8.4.4",
     "@nestjs/platform-express": "8.4.3",
-    "@nestjs/typeorm": "8.0.3",
     "@nestjs/swagger": "5.2.1",
+    "@nestjs/typeorm": "8.0.3",
+    "@risingstack/jaeger": "^2.5.0",
     "class-transformer": "0.5.1",
     "class-validator": "0.13.2",
     "dotenv": "16.0.3",
@@ -42,8 +43,9 @@
     "pg": "8.11.1",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.2.0",
+    "swagger-ui-express": "4.3.0",
     "typeorm": "0.2.41",
-    "swagger-ui-express": "4.3.0"
+    "winston": "^3.11.0"
   },
   "devDependencies": {
     "@nestjs/cli": "8.2.4",

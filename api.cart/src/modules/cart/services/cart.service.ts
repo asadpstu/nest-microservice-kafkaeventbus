@@ -14,6 +14,7 @@ import {
 import { IAuthUser } from '@shared/interfaces/auth-user.interface';
 import { CartEntity } from '@modules/cart/entities/cart.entity';
 import { AppError } from '@shared/errors/app.error';
+import { LoggerService } from '@modules/logger/logger/logger.service';
 
 @Injectable()
 export class CartService {
@@ -22,6 +23,7 @@ export class CartService {
     private readonly cartRepository: CartRepository,
     @InjectRepository(CartProductRepository)
     private readonly cartProductRepository: CartProductRepository,
+    private readonly logger: LoggerService
   ) {}
 
   async addProductToCart(
@@ -70,7 +72,7 @@ export class CartService {
         quantity,
       });
     }
-
+    this.logger.log(`productId : ${productId} added to cartId :  ${cart.id} by UserId : ${user.sub}`);
     return CreateCartDto.factory(cart);
   }
 

@@ -9,6 +9,7 @@ import { USER_REPOSITORY } from '@shared/constants/constants';
 import { User } from '@modules/user/models/user.model';
 import { AppError } from '@shared/errors/app.error';
 import { KafkaService } from '@modules/message/services/kafka.service';
+import { LoggerService } from '@modules/logger/logger/logger.service';
 
 @Injectable()
 export class UserService {
@@ -17,11 +18,10 @@ export class UserService {
 
   constructor(
     @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
-
     @Inject(USER_REPOSITORY) private readonly userRepository: typeof User,
     private readonly kafkaService: KafkaService,
     private readonly authenticationService: AuthenticationService,
-   
+    private readonly logger: LoggerService
   ) {}
 
   async create({ email, name, password }: RegisterUserDto) {
@@ -47,8 +47,8 @@ export class UserService {
     });
 
     const key = this.getKey(email);
-
     await this.cacheManager.set(key, { user }, this.twentyFourHours);
+    this.logger.log(`New user created for ${email}`);
   }
 
   async login({ email, password }: LoginDto): Promise<ITokenResponse> {
@@ -84,7 +84,8 @@ export class UserService {
 
     const { accessToken, refreshToken } =
       await this.authenticationService.signIn(foundUser);
-      console.log("Event emitted....")
+      
+      this.logger.log(`Successfull authentication by userId : ${foundUser.id} at ${Date.now()}`);
       this.kafkaService.emit('authenticate', {
         key: `authenticate`,
         value: {
@@ -92,7 +93,6 @@ export class UserService {
           authenticate : true
         },
       });  
-
     return { accessToken, refreshToken };
   }
 
